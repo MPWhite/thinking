@@ -12,87 +12,14 @@ const posts = (await getCollection('blog'))
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Blog</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #faf8f5;
-      --text: #3d3929;
-      --text-secondary: #73695f;
-      --accent: #9b6b3f;
-      --border: #e0dbd3;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1a1815;
-        --text: #d4cfc5;
-        --text-secondary: #8a8479;
-        --accent: #c99567;
-        --border: #2d2a24;
-      }
-    }
-
-    body {
-      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Consolas', 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.8;
-      background: var(--bg);
-      color: var(--text);
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-
-    h1 {
-      font-size: 14px;
-      font-weight: 400;
-      margin-bottom: 4rem;
-    }
-
-    article {
-      margin-bottom: 4rem;
-    }
-
-    time {
-      color: var(--text-secondary);
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-
-    article a {
-      color: var(--text);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.75rem;
-    }
-
-    article a:hover {
-      color: var(--accent);
-    }
-
-    .description {
-      color: var(--text-secondary);
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 3rem 1.5rem;
-      }
-    }
-  </style>
 </head>
 <body>
-  <h1>~/blog</h1>
+  <h1>My Blog</h1>
   {posts.map(post => (
     <article>
       <time>{post.data.date.toISOString().split('T')[0]}</time>
-      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-      <div class="description">{post.data.description}</div>
+      <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+      <p>{post.data.description}</p>
     </article>
   ))}
 </body>
