@@ -1,27 +1,20 @@
 ---
-title: "My First Blog Post"
-description: "Welcome to my new blog built with Astro and TypeScript"
+title: "Please make your UX less 'dynamic'"
+description: "Here are a few of my (least) favorite things"
 date: 2024-01-15
 ---
 
-# Welcome to My Blog
+I recently purchased an iPad so I could read and annotate PDFs in bed without needing to bring my laptop or phone into the bedroom. 
 
-This is my first blog post! This blog is built with:
+Overall I've found the device to be pretty good. I don't have many apps installed on it other than Zotero and Audible, both of which I'd recommend. 
 
-- **Astro** - A modern static site generator
-- **TypeScript** - For type-safe code
-- **Markdown** - For writing content
+One thing that I've found mind-bendingly bad, however, are the volume buttons. This may come as a shock, given that physical volume buttons have been a solved design problem since at least the Zenith “Space Command” television remote in the 1950s. 
 
-## How It Works
+If aren't familiar with the design of the modern iPad volume controls, let me take a moment to explain. Consider an arbitrary rectangular touch-screen device. 
 
-Simply create markdown files in `src/content/blog/` with frontmatter containing:
-- `title` - The post title
-- `description` - A short description
-- `date` - Publication date
-- `draft` (optional) - Set to `true` to hide from the blog listing
-
-Write your content below the frontmatter using standard Markdown syntax.
-
-## Publishing
-
-After creating or editing posts, build the site and deploy to your hosting provider.
++------+ 
+|      || < Volume up button
+|      || < Volume down button
+|      |
+|      |
++------+
