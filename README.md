@@ -1,43 +1,80 @@
-# Astro Starter Kit: Minimal
+# Simple Blog
 
-```sh
-npm create astro@latest -- --template minimal
+A minimal blogging website built with Astro, TypeScript, and Markdown.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Visit `http://localhost:4321` to see your blog.
 
-## 🚀 Project Structure
+## Writing Posts
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Create a new `.md` file in `src/content/blog/`
+2. Add frontmatter:
+   ```markdown
+   ---
+   title: "Your Post Title"
+   description: "A brief description"
+   date: 2024-01-20
+   draft: false  # optional, set to true to hide
+   ---
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+   Your content here...
+   ```
+
+## Building for Production
+
+```bash
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The static site will be in the `dist/` directory.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Deployment
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Deploy (auto-detected as Astro project)
 
-## 🧞 Commands
+### Netlify
+1. Push your code to GitHub
+2. Import project in [Netlify](https://netlify.com)
+3. Settings are in `netlify.toml` (auto-configured)
 
-All commands are run from the root of the project, from a terminal:
+### GitHub Pages
+1. Enable GitHub Pages in repository settings
+2. Set source to "GitHub Actions"
+3. Push code - workflow in `.github/workflows/deploy.yml` will run automatically
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Other Platforms
+Build command: `npm run build`
+Output directory: `dist`
 
-## 👀 Want to learn more?
+## Project Structure
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+src/
+├── content/
+│   ├── blog/          # Your markdown blog posts
+│   └── config.ts      # Content collection schema
+├── layouts/
+│   └── BlogPost.astro # Blog post layout
+└── pages/
+    ├── index.astro    # Home page (post listing)
+    └── blog/
+        └── [...slug].astro  # Dynamic blog post pages
+```
+
+## Commands
+
+| Command | Action |
+|---------|--------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview build locally before deploying |

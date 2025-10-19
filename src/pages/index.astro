@@ -1,16 +1,59 @@
 ---
+import { getCollection } from 'astro:content';
 
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <style>
+    body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem;
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+    }
+    h1 {
+      margin-bottom: 2rem;
+    }
+    article {
+      margin-bottom: 2rem;
+    }
+    article h2 {
+      margin-bottom: 0.5rem;
+    }
+    article a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    article a:hover {
+      text-decoration: underline;
+    }
+    time {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    p {
+      margin: 0.5rem 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Blog</h1>
+  {posts.map(post => (
+    <article>
+      <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
+      <time>{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+      <p>{post.data.description}</p>
+    </article>
+  ))}
+</body>
 </html>
