@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import '../styles/theme.css';
 
 const posts = (await getCollection('blog'))
   .filter(post => !post.data.draft)
@@ -11,25 +12,36 @@ const posts = (await getCollection('blog'))
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="thinking.sh — experimental field notes on code, clarity, and craft.">
   <title>thinking.sh</title>
-  <style>
-    body {
-      font-family: monospace;
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-  </style>
 </head>
 <body>
-  <h1>thinking.sh</h1>
-  {posts.map(post => (
-    <article>
-      <time>{post.data.date.toISOString().split('T')[0]}</time>
-      <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
-      <p>{post.data.description}</p>
-    </article>
-  ))}
+  <main class="glass-shell">
+    <header class="site-header">
+      <span class="eyebrow">Field Notes</span>
+      <h1 class="headline">thinking.sh</h1>
+      <p class="subhead">A minimal yet magical stream of experiments on code, clarity, and creative systems.</p>
+    </header>
+
+    <section class="post-list">
+      <p class="section-title">Latest entries</p>
+      <ul class="post-grid">
+        {posts.map(post => (
+          <li class="post-card">
+            <a class="post-card__link" href={`/blog/${post.slug}`}>
+              <span class="post-card__meta">
+                <time>{post.data.date.toISOString().split('T')[0]}</time>
+                <span class="post-card__spark" aria-hidden="true"></span>
+              </span>
+              <h2 class="post-card__title">{post.data.title}</h2>
+              <p class="post-card__excerpt">{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <p class="footer-note">Built with Astro • Tuned for wonder</p>
+  </main>
 </body>
 </html>
