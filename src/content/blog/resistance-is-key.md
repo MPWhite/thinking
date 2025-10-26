@@ -1,7 +1,7 @@
 ---
 title: "Please make your UX less 'dynamic'"
 description: "Here are a few of my (least) favorite things"
-date: 2024-01-15
+date: 2025-10-25
 draft: true
 ---
 
@@ -9,4 +9,4 @@ In college I walked onto the varsity lightweight rowing team because I believed 
 
 BLOCK INTRODUCING ROWING
 
-Over several years I've invested meaningful effort in optimizations (hacks) to try to make me more efficient 
+Over several years I've invested meaningful effort in optimizations (hacks) to try to make me more efficient day to day. This has taken all sorts of forms, supplements, aggressive time tracking, meditation, 
